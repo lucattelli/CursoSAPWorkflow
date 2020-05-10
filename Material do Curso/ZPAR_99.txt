@@ -1,0 +1,66 @@
+REPORT zpar_99.
+
+PARAMETERS : pernr  TYPE zpatb_99-pernr,
+             action TYPE zpatb_99-action,
+             email  TYPE zpatb_99-email,
+             justif TYPE zpatb_99-justif.
+SELECTION-SCREEN SKIP.
+PARAMETERS : objtype TYPE swetypecou-objtype.
+
+START-OF-SELECTION.
+
+  DATA t_zpatb_99 TYPE STANDARD TABLE OF zpatb_99 WITH DEFAULT KEY.
+  SELECT *
+    FROM zpatb_99
+    INTO TABLE t_zpatb_99
+  WHERE pernr EQ pernr.
+  DELETE t_zpatb_99 WHERE status EQ '3'.    " remove aprovados (concluídos)
+  DELETE t_zpatb_99 WHERE status EQ '9'.    " remove rejeitados (concluídos)
+  IF t_zpatb_99[] IS NOT INITIAL.
+*    MESSAGE 'Já existe um processo em andamento. Impossível seguir.' TYPE 'E'.
+    DATA item TYPE zpatb_99.
+    READ TABLE t_zpatb_99 INTO item INDEX 1.
+    item-status = '1'.
+    MODIFY zpatb_99 FROM item.
+    COMMIT WORK AND WAIT.
+  ELSE.
+    DATA new_item TYPE zpatb_99.
+    new_item-mandt = sy-mandt.
+    new_item-pernr = pernr.
+    new_item-datum = sy-datum.
+    new_item-action = action.
+    new_item-status = '1'.
+    new_item-status_datum = sy-datum.
+    new_item-email = email.
+    new_item-justif = justif.
+    INSERT INTO zpatb_99 VALUES new_item.
+    COMMIT WORK AND WAIT.
+  ENDIF.
+
+  DATA : objkey         TYPE sweinstcou-objkey,
+         event          TYPE swetypecou-event,
+         event_id       TYPE swedumevid-evtid,
+         receiver_count TYPE swedumevid-evtid.
+
+  CONCATENATE pernr sy-datum INTO objkey.
+  event = 'CREATED'.
+  CALL FUNCTION 'SWE_EVENT_CREATE'
+    EXPORTING
+      objtype           = objtype
+      objkey            = objkey
+      event             = event
+    IMPORTING
+      event_id          = event_id
+      receiver_count    = receiver_count
+    EXCEPTIONS
+      objtype_not_found = 1
+      OTHERS            = 2.
+  IF sy-subrc <> 0.
+    ROLLBACK WORK.
+    MESSAGE 'Ocorreu uma exceção' TYPE 'E'.
+  ELSEIF event_id IS NOT INITIAL.
+    COMMIT WORK AND WAIT.
+    WRITE: 'EVENT_ID', event_id.
+    NEW-LINE.
+    WRITE: 'RECEIVER_COUNT', receiver_count.
+  ENDIF.

@@ -1,0 +1,117 @@
+*****           Implementation of object type ZPA_25               *****
+INCLUDE <object>.
+begin_data object. " Do not change.. DATA is generated
+* only private members may be inserted into structure private
+DATA:
+  " begin of private,
+  "   to declare private attributes remove comments and
+  "   insert private attributes here ...
+  " end of private,
+  BEGIN OF key,
+    personnelnumber LIKE zpatb_99-pernr,
+    currentdate     LIKE zpatb_99-datum,
+  END OF key,
+  _zpatb_99 LIKE zpatb_99.
+end_data object. " Do not change.. DATA is generated
+
+begin_method getemail changing container.
+DATA : lv_email TYPE zpatb_99-email.
+SELECT SINGLE email FROM zpatb_99 INTO lv_email
+  WHERE pernr EQ object-key-personnelnumber
+    AND datum EQ object-key-currentdate.
+swc_set_element container 'EMAIL' lv_email.
+end_method.
+
+TABLES zpatb_99.
+*
+get_table_property zpatb_99.
+DATA subrc LIKE sy-subrc.
+* Fill TABLES ZPATB_99 to enable Object Manager Access to Table
+* Properties
+PERFORM select_table_zpatb_99 USING subrc.
+IF subrc NE 0.
+  exit_object_not_found.
+ENDIF.
+end_property.
+*
+* Use Form also for other(virtual) Properties to fill TABLES ZPATB_99
+FORM select_table_zpatb_99 USING subrc LIKE sy-subrc.
+* Select single * from ZPATB_99, if OBJECT-_ZPATB_99 is initial
+  IF object-_zpatb_99-mandt IS INITIAL
+  AND object-_zpatb_99-pernr IS INITIAL
+  AND object-_zpatb_99-datum IS INITIAL.
+    SELECT SINGLE * FROM zpatb_99 CLIENT SPECIFIED
+        WHERE mandt = sy-mandt
+        AND pernr = object-key-personnelnumber
+        AND datum = object-key-currentdate.
+    subrc = sy-subrc.
+    IF subrc NE 0. EXIT. ENDIF.
+    object-_zpatb_99 = zpatb_99.
+  ELSE.
+    subrc = 0.
+    zpatb_99 = object-_zpatb_99.
+  ENDIF.
+ENDFORM.
+
+begin_method setstatus changing container.
+
+DATA:
+  lv_status       TYPE zpatb_99-status,
+  lv_status_datum TYPE zpatb_99-status_datum.
+
+swc_get_element container 'STATUS' lv_status.
+swc_get_element container 'STATUSDATUM' lv_status_datum.
+
+UPDATE zpatb_99 SET
+  status = lv_status
+  status_datum = lv_status_datum
+  WHERE pernr EQ object-key-personnelnumber
+    AND datum EQ object-key-currentdate.
+
+end_method.
+
+begin_method block changing container.
+DATA : usrid    TYPE pa0105-usrid,
+       username TYPE bapibname-bapibname,
+       t_return TYPE STANDARD TABLE OF bapiret2 WITH DEFAULT KEY.
+CHECK object-_zpatb_99-status EQ '3'. " aprovado!
+SELECT usrid FROM pa0105 INTO usrid UP TO 1 ROWS
+  WHERE pernr EQ object-_zpatb_99-pernr
+    AND subty EQ '0001'
+    AND objps EQ space
+    AND sprps EQ space
+    AND endda GE object-_zpatb_99-datum
+    AND begda LE object-_zpatb_99-datum
+    AND seqnr EQ '000'.
+  username = usrid.
+ENDSELECT.
+CALL FUNCTION 'BAPI_USER_LOCK'
+  EXPORTING
+    username = username
+  TABLES
+    return   = t_return.
+CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
+end_method.
+
+begin_method unblock changing container.
+DATA : usrid    TYPE pa0105-usrid,
+       username TYPE bapibname-bapibname,
+       t_return TYPE STANDARD TABLE OF bapiret2 WITH DEFAULT KEY.
+CHECK object-_zpatb_99-status EQ '3'. " aprovado!
+SELECT usrid FROM pa0105 INTO usrid UP TO 1 ROWS
+  WHERE pernr EQ object-_zpatb_99-pernr
+    AND subty EQ '0001'
+    AND objps EQ space
+    AND sprps EQ space
+    AND endda GE object-_zpatb_99-datum
+    AND begda LE object-_zpatb_99-datum
+    AND seqnr EQ '000'.
+  username = usrid.
+ENDSELECT.
+CALL FUNCTION 'BAPI_USER_UNLOCK'
+  EXPORTING
+    username = username
+  TABLES
+    return   = t_return.
+CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
+end_method.

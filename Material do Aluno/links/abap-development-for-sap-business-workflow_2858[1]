@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
+    <head>
+        <title>ABAP Development for SAP Business Workflow.  von Ilja-
+    
+     - by
+    SAP PRESS</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="created" content="10th Feb 2017 02:21" />
+
+        
+
+        
+        <meta name="title" content="ABAP Development for SAP Business Workflow.  von Ilja-" />
+        <meta name="description" content="If you&#39;re interested in the complex programming of SAP Business Workflow, this is the resource for you! This book addresses all aspects of the tools..."/>
+
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781592293940_800_2d.png" />
+        <meta property="og:site_name" content="SAP PRESS" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="product:brand" content="Rheinwerk Publishing, Inc." />
+        <meta property="product:retailer" content="258924584774" />
+        <meta property="product:category" content="Book" />
+        <meta property="product:isbn" content="978-1-59229-394-0" />
+        <meta property="product:price:amount" content="74.99" />
+        <meta property="product:price:currency" content="USD" />
+
+
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=960, user-scalable=yes" />
+
+        
+        
+        <meta name="com.silverpop.brandeddomains" content="www.pages03.net,www.sap-press.com" />
+        <meta name="com.silverpop.cothost" content="pod3.ibmmarketingcloud.com" />
+        
+
+        <meta name="google-site-verification" content="yaHjrtg2odYYgOihSgCl6JUsn0xrPcypdnJQS8CAkyk" />
+
+        <meta name="google-site-verification" content="V3qzmbT57JdQzsA-LbFNSUEnJm3t9chqhSH7CjAypqk" />
+
+
+        
+
+
+    <script>
+var gaProperty = 'UA-52209316-1';
+var disableStr = 'ga-disable-' + gaProperty;
+if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+}
+function gaOptout() {
+  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+  window[disableStr] = true;
+}
+</script>
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+ga('create', 'UA-52209316-1', 'sap-press.com');
+
+
+ga('set', 'forceSSL', true);
+
+
+ga('require', 'ec');
+
+ga('set', '&cu', 'USD');
+
+
+
+ga('set', 'anonymizeIp', true);
+
+ga('send', 'pageview');
+</script>
+
+
+        
+
+<!-- BEGIN Bing Ads UET JavaScript tag -->
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5441636"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="//bat.bing.com/action/0?ti=5441636&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+<!-- END Bing Ads UET JavaScript tag -->
+
+
+
+        
+            <link rel="shortcut icon" href="//static.sap-press.com/favicon.ico" />
+            <link rel="apple-touch-icon-precomposed" href="//static.sap-press.com/favicon-152.png" />
+        
+
+        
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!-- box-sizing fix for IE7 -->
+        <!--[if lte IE 7]>
+            <style>
+                * { behavior: url(/serve/boxsizing.htc); }
+            </style>
+         <![endif]-->
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" type="text/css" href="//static.sap-press.com/css/ie-fix.css" />
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" type="text/css" href="//static.sap-press.com/css/default.css" />
+        <!--<![endif]-->
+
+        <link rel="stylesheet" href="//static.sap-press.com/vendor/lightbox2/css/lightbox.css" />
+
+        
+        
+        <script src="https://www.sc.pages03.net/lp/static/js/iMAWebCookie.js?1b4b6f11-148fc2a6777-943e27de0c8b91cc3fcf1475c3e5d726&h=www.pages03.net" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+            var pageToLoad = 'catalogue/ProductDetailPage';
+        </script>
+        <script src="//static.sap-press.com/vendor/require.js" data-main="//static.sap-press.com/js/require.config.js"></script>
+        <script src="//static.sap-press.com/vendor/wgxpath.install.js"></script>
+        <script type="text/javascript">
+            'use strict';
+            if (!window.XPathResult) {
+                wgxpath.install(window);
+            }
+        </script>
+
+        
+        
+
+        
+
+    </head>
+
+    <body id="product-detail-body"
+          class="variant_choice_3 gutters"
+          >
+
+        
+
+        <div id="header-wrapper">
+            <div class="container">
+                
+                    <header>
+                        
+                            <div id="branding">
+                                <a href="/">
+                                    <img src="//static.sap-press.com/img/rheinwerk-sappress-logo-header.png" width="289" height="54" alt="Rheinwerk Publishing and SAP Press" title="Homepage" />
+                                </a>
+                            </div>
+                        
+
+                        
+                            <div id="search">
+                                <div id="welcome"></div>
+                                <form action="/search/">
+                                    <input type="text" name="q"><button type="submit"><span class="header-functions-search"></span></button>
+                                </form>
+                            </div>
+                        
+
+                        <div id="header-functions">
+                            
+                                <nav id="nav-account">
+                                    <ul>
+                                        <li><a id="account-link" href="/accounts/profile/summary/">Your account</a></li>
+                                        <li><a href="/newsletter/subscribe/">Newsletter</a></li>
+                                        <li><a href="/help/">Help</a></li>
+                                        <li><a id="login-link" href="/accounts/login/?next=/abap-development-for-sap-business-workflow_2858/">Log in</a></li>
+                                        <li><a id="register-link" href="/accounts/register/">Register</a></li>
+
+                                    </ul>
+                                </nav>
+                            
+                            <div id="library"><a href="http://library.sap-press.com/library">Library</a></div>
+                            <div id="shopping-cart"><a href="/basket/">Shopping Cart (<span class="quantity"></span>)</a></div>
+                        </div>
+                    </header>
+                
+            </div>
+        </div>
+
+        <div id="nav-main-wrapper">
+            <div class="container">
+                
+                    <nav id="nav-main"><ul><li><a title="Programming" href="/programming/">Programming</a><ul><li><a title="ABAP Basics" href="/programming/abap-basics/">ABAP Basics</a><li><li><a title="Advanced ABAP" href="/programming/advanced-abap/">Advanced ABAP</a><li><li><a title="Application Development" href="/programming/application-development/">Application Development</a><li><li><a title="Cloud &amp; Mobile" href="/programming/cloud-mobile/">Cloud & Mobile</a><li><li><a title="Integration" href="/programming/integration/">Integration</a><li><li><a title="User Interfaces" href="/programming/user-interfaces/">User Interfaces</a><li><li><a title="Programming E-Bites" href="/programming/programming-e-bites/">Programming E-Bites</a></li></ul><li><li><a title="Administration" href="/administration/">Administration</a><ul><li><a title="Application Server" href="/administration/application-server/">Application Server</a><li><li><a title="BW/BusinessObjects" href="/administration/bwbusinessobjects/">BW/BusinessObjects</a><li><li><a title="Cloud &amp; Mobile" href="/administration/cloud-mobile/">Cloud & Mobile</a><li><li><a title="Data Management" href="/administration/data-management/">Data Management</a><li><li><a title="Database" href="/administration/database/">Database</a><li><li><a title="Integration" href="/administration/integration/">Integration</a><li><li><a title="Projects" href="/administration/projects/">Projects</a><li><li><a title="SAP Solution Manager" href="/administration/sap-solution-manager/">SAP Solution Manager</a><li><li><a title="Security and Identity Management" href="/administration/security-and-identity-management/">Security and Identity Management</a><li><li><a title="Administration E-Bites" href="/administration/administration-e-bites/">Administration E-Bites</a></li></ul><li><li><a title="Business Intelligence" href="/business-intelligence/">BI/EIM</a><ul><li><a title="SAP BusinessObjects BI" href="/business-intelligence/sap-businessobjects-bi/">SAP BusinessObjects BI</a><li><li><a title="SAP BW" href="/business-intelligence/sap-bw/">SAP BW</a><li><li><a title="Administration" href="/business-intelligence/administration/">Administration</a><li><li><a title="Development" href="/business-intelligence/development/">Development</a><li><li><a title="Enterprise Information Management" href="/business-intelligence/enterprise-information-management/">Enterprise Information Management</a><li><li><a title="Implementation" href="/business-intelligence/implementation/">Implementation</a><li><li><a title="Reporting" href="/business-intelligence/reporting/">Reporting</a><li><li><a title="BI/EIM E-Bites" href="/business-intelligence/bieim-e-bites/">BI/EIM E-Bites</a></li></ul><li><li><a title="Finance &amp; Controlling" href="/finance-controlling/">FICO</a><ul><li><a title="SAP S/4HANA" href="/finance-controlling/sap-s4hana/">SAP S/4HANA</a><li><li><a title="SAP FICO Training" href="/finance-controlling/sap-fico-training/">SAP FICO Training</a><li><li><a title="Auditing" href="/finance-controlling/auditing/">Auditing</a><li><li><a title="Business Planning &amp; Consolidation" href="/finance-controlling/business-planning-consolidation/">Business Planning & Consolidation</a><li><li><a title="CO Implementation" href="/finance-controlling/co-implementation/">CO Implementation</a><li><li><a title="CO for End Users" href="/finance-controlling/co-for-end-users/">CO for End Users</a><li><li><a title="FI Implementation" href="/finance-controlling/fi-implementation/">FI Implementation</a><li><li><a title="FI for End Users" href="/finance-controlling/fi-for-end-users/">FI for End Users</a><li><li><a title="Financial Supply Chain Management" href="/finance-controlling/financial-supply-chain-management/">Financial Supply Chain Management</a><li><li><a title="Reporting" href="/finance-controlling/reporting/">Reporting</a><li><li><a title="FICO E-Bites" href="/finance-controlling/fico-e-bites/">FICO E-Bites</a></li></ul><li><li><a title="Logistics" href="/logistics/">Logistics</a><ul><li><a title="Supply Chain Management" href="/logistics/supply-chain-management/">Supply Chain Management</a><li><li><a title="Supplier Relationship Management" href="/logistics/supplier-relationship-management/">Supplier Relationship Management</a><li><li><a title="Materials Management" href="/logistics/materials-management/">Materials Management</a><li><li><a title="Plant Maintenance" href="/logistics/plant-maintenance/">Plant Maintenance</a><li><li><a title="Project System &amp; PLM" href="/logistics/project-system-plm/">Project System & PLM</a><li><li><a title="Production Planning" href="/logistics/production-planning/">Production Planning</a><li><li><a title="Transportation &amp; Warehouse Management" href="/logistics/transportation-warehouse-management/">Transportation & Warehouse Management</a><li><li><a title="Quality Management" href="/logistics/quality-management/">Quality Management</a><li><li><a title="Sales &amp; Distribution" href="/logistics/sales-distribution/">Sales & Distribution</a><li><li><a title="Logistics E-Bites" href="/logistics/logistics-e-bites/">Logistics E-Bites</a></li></ul><li><li><a title="Human Resources" href="/human-resources/">HR</a><ul><li><a title="Personnel Management" href="/human-resources/personnel-management/">Personnel Management</a><li><li><a title="Personnel Planning" href="/human-resources/personnel-planning/">Personnel Planning</a><li><li><a title="SuccessFactors" href="/human-resources/successfactors/">SuccessFactors</a><li><li><a title="Talent Management" href="/human-resources/talent-management/">Talent Management</a><li><li><a title="HR E-Bites" href="/human-resources/hr-e-bites/">HR E-Bites</a></li></ul><li><li><a title="Marketing &amp; Sales" href="/marketing-sales/">CRM & Sales</a><ul><li><a title="SAP Customer Relationship Management" href="/marketing-sales/sap-customer-relationship-management/">SAP Customer Relationship Management</a><li><li><a title="SAP Sales &amp; Distribution" href="/marketing-sales/sap-sales-distribution/">SAP Sales & Distribution</a></li></ul><li><li><a title="HANA" href="/hana/">HANA</a><ul><li><a title="Basics" href="/hana/basics/">Basics</a><li><li><a title="Implementation &amp; Administration" href="/hana/implementation-administration/">Implementation & Administration</a><li><li><a title="Development" href="/hana/development/">Development</a><li><li><a title="SAP S/4HANA" href="/hana/sap-s4hana/">SAP S/4HANA</a><li><li><a title="HANA E-Bites" href="/hana/hana-e-bites/">HANA E-Bites</a></li></ul><li><li><a title="IT Management" href="/it-management/">IT Mgmt.</a><ul><li><a title="100 Things ..." href="/it-management/100-things/">100 Things ...</a><li><li><a title="SAP for Beginners" href="/it-management/sap-for-beginners/">SAP for Beginners</a><li><li><a title="SAP for IT Managers" href="/it-management/sap-for-it-managers/">SAP for IT Managers</a></li></ul><li><li><a title="E-Bites" href="/e-bites/">E-Bites</a><ul><li><a title="Programming" href="/e-bites/programming/">Programming E-Bites</a><li><li><a title="Administration" href="/e-bites/administration/">Administration E-Bites</a><li><li><a title="BI/EIM" href="/e-bites/bieim/">BI/EIM E-Bites</a><li><li><a title="FICO" href="/e-bites/fico/">FICO E-Bites</a><li><li><a title="Logistics" href="/e-bites/logistics/">Logistics E-Bites</a><li><li><a title="HR E-Bites" href="/e-bites/hr-e-bites/">HR E-Bites</a><li><li><a title="HANA" href="/e-bites/hana/">HANA E-Bites</a><li><li><a title="Chapters" href="/e-bites/chapters/">Chapter E-Bites</a></li></ul></li></ul></li></ul></nav>
+                
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="content">
+            
+                <div class="content-main">
+                
+
+
+    
+    <article id="product-detail-page" itemscope itemtype="http://schema.org/Book"
+         data-id="340"
+         data-title_id="2858"
+         data-title="ABAP Development for SAP Business Workflow"
+         data-price="74.99"
+         data-variant="E-book">
+
+        <header class="product-full-row" style="background-color: #21B7C5;">
+            <h3>Your ultimate resource to programming SAP Business Worflow!</h3>
+        </header>
+        <section id="product-base">
+            <div id="product-cover" class="product-base-left-column">
+                <span class="cover_variant variant_choice_2 variant_choice_4">
+                    
+
+<img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781592293940_267.png" class="cover-267" alt="Cover of ABAP Development for SAP Business Workflow" height="267" itemprop="image" />
+
+                </span>
+                <span class="cover_variant variant_choice_3 variant_choice_9">
+                    
+
+<img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781592293940_267_2d.png" class="cover-267" alt="Cover of ABAP Development for SAP Business Workflow" height="267" itemprop="image" />
+
+                </span>
+            </div>
+
+            <div class="product-base-right-column">
+                
+    <div class="product-full-row" itemprop="name">
+        <h3 id="title">ABAP Development for SAP Business Workflow</h3>
+        <h4 id="subtitle"></h4>
+    </div>
+    <div class="product-full-row">
+    	<h6 id="authors">
+            written by
+            <span itemprop="author"><a href="/abap-development-for-sap-business-workflow_2858/author/">Ilja-Daniel Werner</a></span>
+        </h6>
+    </div>
+    <div class="product-full-row">
+        <form>
+        
+            
+            
+
+<div class="variant-choice" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <div class="variant-selector" itemprop="itemOffered" itemscope itemtype="http://schema.org/Book">
+        
+            <span class="radio">
+                <input type="radio"
+                       name="product_choice"
+                       id="product_choice_3"
+                       checked="checked"
+                       value="3"
+                       data-id="1171"
+                       data-available="1"
+                       data-title_id="2858"
+                       data-title="ABAP Development for SAP Business Workflow"
+                       data-price="74.99"
+                       data-variant="E-book"/>
+                <label for="product_choice_3" itemprop="bookFormat">E-book</label>
+            </span>
+        
+    </div>
+    <div id="variant-price" itemprop="price">
+        $74.99
+    </div>
+    <div id="variant-availability" itemprop="availability">
+        <p class="variant status available">
+    
+        <span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p>
+
+
+
+    </div>
+</div>
+
+        
+            
+            
+
+<div class="variant-choice" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <div class="variant-selector" itemprop="itemOffered" itemscope itemtype="http://schema.org/Book">
+        
+            <span class="radio">
+                <input type="radio"
+                       name="product_choice"
+                       id="product_choice_2"
+                       
+                       value="2"
+                       data-id="793"
+                       data-available="1"
+                       data-title_id="2858"
+                       data-title="ABAP Development for SAP Business Workflow"
+                       data-price="84.95"
+                       data-variant="Print edition"/>
+                <label for="product_choice_2" itemprop="bookFormat">Print edition</label>
+            </span>
+        
+    </div>
+    <div id="variant-price" itemprop="price">
+        $84.95
+    </div>
+    <div id="variant-availability" itemprop="availability">
+        <p class="variant status available">
+    
+        <span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p>
+
+
+
+    </div>
+</div>
+
+        
+            
+            
+
+<div class="variant-choice" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <div class="variant-selector" itemprop="itemOffered" itemscope itemtype="http://schema.org/Book">
+        
+            <span class="radio">
+                <input type="radio"
+                       name="product_choice"
+                       id="product_choice_4"
+                       
+                       value="4"
+                       data-id="1172"
+                       data-available="1"
+                       data-title_id="2858"
+                       data-title="ABAP Development for SAP Business Workflow"
+                       data-price="94.99"
+                       data-variant="Bundle"/>
+                <label for="product_choice_4" itemprop="bookFormat">Bundle</label>
+            </span>
+        
+    </div>
+    <div id="variant-price" itemprop="price">
+        $94.99
+    </div>
+    <div id="variant-availability" itemprop="availability">
+        <p class="variant status available">
+    
+        <span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p>
+
+
+
+    </div>
+</div>
+
+        
+        </form>
+    </div>
+
+            </div>
+            <div id="product-small-previews" class="product-base-left-column">
+                
+    
+
+<div class="pagepreviews_small" itemprop="associatedMedia" itemscope itemtype="http://schema.org/MediaObject">
+    <ul>
+        
+            <a target="_blank" href="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/leseproben/2858/sappress_abap_development_for_sap_business_workflow.pdf" itemprop="contentUrl"><span>Browse the Book</span></a>
+            <li>
+                
+                    <img class="preview preview_hardcopy" src="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/89/24_2-fold_2-grey.png" alt="Bildunterschrift zur Leseproben-Auswahl (optional)"/>
+                
+            </li>
+       
+            <a target="_blank" href="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/leseproben/2858/sappress_abap_development_for_sap_business_workflow.pdf" itemprop="contentUrl"><span>Browse the Book</span></a>
+            <li>
+                
+                    <img class="preview preview_hardcopy" src="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/89/90_2-fold_2-grey.png" alt="Bildunterschrift zur Leseproben-Auswahl (optional)"/>
+                
+            </li>
+       
+    </ul>
+</div>
+
+
+
+            </div>
+            <div id="product-bib-info" class="product-base-right-column">
+                <meta itemprop="publisher" content="Rheinwerk Publishing, Inc." />
+                
+    
+
+
+ <div class="bib_angaben">
+    
+        <span class="format_variant variant_choice_2">
+            <span itemprop="numberOfPages">194</span> pages,  <span itemprop="datePublished">2011</span>, Print edition hardcover<br/>ISBN <span itemprop="isbn">978-1-59229-394-0</span>
+        </span>
+    
+        <span class="format_variant variant_choice_3">
+            <span itemprop="numberOfPages">194</span> pages,  <span itemprop="datePublished">2011</span><br/>E-book formats: EPUB, MOBI, PDF, online<br/>ISBN <span itemprop="isbn">978-1-59229-783-2</span>
+        </span>
+    
+        <span class="format_variant variant_choice_4">
+            <span itemprop="numberOfPages">194</span> pages,  <span itemprop="datePublished">2011</span>, Print edition hardcover<br/>E-book formats: EPUB, MOBI, PDF, online<br/>ISBN <span itemprop="isbn">978-1-59229-784-9</span>
+        </span>
+    
+</div>
+
+
+            </div>
+        </section>
+
+        <section id="product-short-information">
+            <div id="product-short-text" itemprop="description">
+                
+    If you're working with the complex programming of SAP Business Workflow, this is the resource for you! This book addresses all aspects of the tools that are directly related to the developer’s tasks, explaining when it is necessary to influence the behavior of SAP Business Workflow using custom code, detailing how to write this code, and offering complete listings for download. 
+
+            </div>
+
+            <div id="product-usps">
+                
+    <ul class="usp">
+    
+    
+        <li style="color: #21B7C5;"><div>Practical exercises for programming in SAP Business Workflow</div></li>
+    
+        <li style="color: #21B7C5;"><div>Step-by-step instructions for adapting data flows, agent determination, event definitions, and more</div></li>
+    
+        <li style="color: #21B7C5;"><div>Examples, problem solutions, and tips and tricks for daily practice</div></li>
+    
+</ul>
+
+
+            </div>
+
+            <div id="product-keywords">
+                
+    
+
+
+            </div>
+
+            <div id="product-epub-reader">
+                
+    
+    
+
+            </div>
+
+            <div id="product-format-info" class="product-full-row-padding">
+                
+    
+        
+    <span class="tab">
+        <a rel="about-variant_2">About the Book</a>
+    </span>
+
+    <span class="tab active">
+        <a rel="about-variant_3">About the E-book</a>
+    </span>
+
+<span class="tab-contents product-full-row">
+    
+        <span id="about-variant_2" >
+            <span class="infobox_hard">194 pages, hardcover, 0.75 in. Reference book format 6.9 x 9 in. Printed black and white on 60# offset paper from sustainable sources. Casebound for durability. Reader-friendly serif font (Linotype Syntax 9.5 Pt.). One-column layout.</span>
+        </span>
+    
+        <span id="about-variant_3" class="active">
+            <span class="infobox_soft">PDF (15 MB), EPUB (28 MB), and MOBI file (18 MB) for download, DRM-free with personalized digital watermark. Copy &amp; paste, bookmarks, and print-out permitted. Table of contents, in-text references, and index fully linked. Including online book edition in dedicated reader application.</span>
+        </span>
+    
+</span>
+
+    
+
+            </div>
+        </section>
+
+        <section id="product-long-information">
+            
+    
+        <div class="product-half-row last">
+            
+    <div class="pagepreviews" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+        <ul>
+            
+                <li>
+                    <a class="preview_hardcopy" data-lightbox="48-hardcopy" href="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/1600/48_2-fold_2-grey.png" itemprop="contentUrl">
+                        <img src="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/317/48_2-fold_2-grey.png" alt="Bildunterschrift (optional)"/>
+                    </a>
+                </li>
+            
+                <li>
+                    <a class="preview_hardcopy" data-lightbox="140-hardcopy" href="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/1600/140_2-fold_2-grey.png" itemprop="contentUrl">
+                        <img src="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/317/140_2-fold_2-grey.png" alt="Bildunterschrift (optional)"/>
+                    </a>
+                </li>
+            
+                <li>
+                    <a class="preview_hardcopy" data-lightbox="160-hardcopy" href="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/1600/160_2-fold_2-grey.png" itemprop="contentUrl">
+                        <img src="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/pagepreviews/2858/317/160_2-fold_2-grey.png" alt="Bildunterschrift (optional)"/>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+        </div>
+    
+
+            <div id="product-learning-points" class="product-half-row">
+                
+    
+        
+<div class="learning-points">
+    <h3>In this book, you'll find:</h3>
+    <ol>
+        
+            <li style="color: #21B7C5;">
+                <h5>Code Examples</h5>
+                <p>Implement your workflow needs and avoid typical pitfalls with the help of code examples and step-by-step instructions.</p>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <h5>Detailed Scenarios</h5>
+                <p>Understand interference in workflow processes: the use of BOR objects in agent determination, as well as data flow or event production.</p>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <h5>Practical Example</h5>
+                <p>Explore a sample project, where you will follow explicit instructions for developing an ABAP Objects class and creating a BOR object for your workflow.</p>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <h5>Process Knowledge</h5>
+                <p>Gain the discipline-specific programming knowledge the ABAP programming workflow process requires. This book shows you what's important to use in your daily work.</p>
+            </li>
+        
+    </ol>
+</div>
+
+
+    
+
+            </div>
+            <div id="product-highlights" class="product-half-row">
+                
+    
+        <div class="highlights">
+     
+    <h3>From the Contents:</h3>
+    <ul>
+        
+            <li style="color: #21B7C5;">
+                <div>Workflow Engine</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Workflow runtime</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>BOR and ABAP OO objects</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Containers, work conditions, and data flows</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Workflow patterns and tasks</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Methods, work items, and events</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Agent determination</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Event definition and implementation</div>
+            </li>
+        
+            <li style="color: #21B7C5;">
+                <div>Workflow runtime system and log files</div>
+            </li>
+        
+    </ul>
+</div>
+
+    
+
+
+                
+    
+        <div id="product-extract">
+            
+
+<div class="leseproben">
+    
+        <a class="probelink" href="https://s3-eu-west-1.amazonaws.com/gxmedia.galileo-press.de/leseproben/2858/sappress_abap_development_for_sap_business_workflow.pdf" target="_blank">
+            Reading Sample
+        </a>
+    
+</div>
+
+        </div>
+    
+
+            </div>
+            <div class="product-half-row">
+                
+    
+
+            </div>
+        </section>
+
+        <section id="product-authorship-extract" class="product-full-row-padding">
+            
+    
+        
+
+<div class="authorship-content">
+    
+        
+            <div class="textwrap" style="color: #21B7C5;">
+                &raquo;<span class="authorquote">You might think it is not very difficult. But as soon as you change two or three totally harmless things, nothing works any longer. And that’s when the workflow people appear again.</span>&laquo;
+            </div>
+        
+        
+    
+	
+	    <p><strong>Ilja-Daniel Werner</strong> is an SAP technical development leader at Océ Document Technologies GmbH, Konstanz. </p>
+	
+	<a href="/abap-development-for-sap-business-workflow_2858/author/">more &gt;</a>
+</div>
+
+    
+
+        </section>
+
+        
+
+        <section id="product-supplements" class="product-full-row-padding">
+            
+    
+
+
+
+
+        </section>
+
+        <section id="product-recommendations">
+            
+    
+        
+        
+            <h3>You may also like:</h3>
+            <div class="productlisting">
+                <ul class="product-list grid">
+                
+                    <li class="product-box">
+                        
+
+<article class="product-box"
+         data-type="1"
+         data-releasedate="20140805"
+         data-status="1"
+         data-score="0.0"
+         data-id="433"
+         data-title_id="3615"
+         data-title="Practical Workflow for SAP"
+         data-price="69.99"
+         data-variant="E-book"><div class="cover"><a href="/practical-workflow-for-sap_3615/" title="To the Book Practical Workflow for SAP"><img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781493210091_171_2d.jpg" class="cover-171" alt="Cover of Practical Workflow for SAP" height="171" itemprop="image" /></a></div><!-- 3615 - 433 - 1 --><h5 class="product-title"><a title="To the Book Practical Workflow for SAP" href="/practical-workflow-for-sap_3615/">
+            Practical Workflow for SAP
+            
+            <div class="subheading"></div></a></h5><p class="author">Jocelyn Dart, Susan Keohan, Alan Rickayzen, DJ Adams, Konstantin Anikeev, Paul Bakker, Rick Bakker, Manish Chaitanya, Stephen Johannes, Markus Kuppe, Martin Maguth, Elke Menninger, Justin Morgalis, Eddie Morris, Amol Palekar, Mike Pokraka, Andreas Seifried, Sachin Sethi, Atul  Sudhalkar</p><p class="bib-info">1089 pages, hardcover
+        </p><div class="abstract"><span class="text-19 text-30 text-40">One resource. All of your SAP Business Workflow needs. Reorganized and fine-tuned, the third edition of this #1 bestseller </span><span class="text-30 text-40">is packed with information and better than ever. Pick the sections </span><span class="text-40">or chapters that are most relevant to you; focus on </span>
+         &hellip; <a title="To the Book Practical Workflow for SAP" href="/practical-workflow-for-sap_3615/">More about the book</a></div><p class="price">from  $69.99</p><p class="variant status available"><span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p><div class="variants"><span data-type="3">E-book</span> | <span data-type="2">Print edition</span> | <span data-type="4">Bundle</span></div></article>
+
+                    </li>
+                
+                    <li class="product-box">
+                        
+
+<article class="product-box"
+         data-type="1"
+         data-releasedate=""
+         data-status="1"
+         data-score="0.0"
+         data-id="276"
+         data-title_id="2250"
+         data-title="SAP Interface Programming"
+         data-price="59.99"
+         data-variant="E-book"><div class="cover"><a href="/sap-interface-programming_2250/" title="To the Book SAP Interface Programming"><img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781592293186_171_2d.jpg" class="cover-171" alt="Cover of SAP Interface Programming" height="171" itemprop="image" /></a></div><!-- 2250 - 276 - 1 --><h5 class="product-title"><a title="To the Book SAP Interface Programming" href="/sap-interface-programming_2250/">
+            SAP Interface Programming
+            
+            <div class="subheading"></div></a></h5><p class="author">Michael Wegelin, Michael Englbrecht</p><p class="bib-info">405 pages, hardcover
+        </p><div class="abstract"><span class="text-19 text-30 text-40">Need to integrate third-party programs with your SAP systems? In this book, learn how to work with the communication </span><span class="text-30 text-40">protocols that are supported by SAP: Remote Function Call (RFC), SAP </span><span class="text-40">Java Connector (JCo), SOAP, XML web services, and more. In </span>
+         &hellip; <a title="To the Book SAP Interface Programming" href="/sap-interface-programming_2250/">More about the book</a></div><p class="price">from  $59.99</p><p class="variant status available"><span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p><div class="variants"><span data-type="3">E-book</span> | <span data-type="2">Print edition</span> | <span data-type="4">Bundle</span></div></article>
+
+                    </li>
+                
+                    <li class="product-box">
+                        
+
+<article class="product-box"
+         data-type="1"
+         data-releasedate=""
+         data-status="1"
+         data-score="0.0"
+         data-id="361"
+         data-title_id="3021"
+         data-title="Web Dynpro ABAP"
+         data-price="69.99"
+         data-variant="E-book"><div class="cover"><a href="/web-dynpro-abap_3021/" title="To the Book Web Dynpro ABAP"><img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781592294169_171_2d.jpg" class="cover-171" alt="Cover of Web Dynpro ABAP" height="171" itemprop="image" /></a></div><!-- 3021 - 361 - 1 --><h5 class="product-title"><a title="To the Book Web Dynpro ABAP" href="/web-dynpro-abap_3021/">
+            Web Dynpro ABAP
+            
+            	<span class="separator"> &ndash; </span><div class="subheading">The Comprehensive Guide</div></a></h5><p class="author">James Wood, Shaan Parvaze</p><p class="bib-info">784 pages, hardcover
+        </p><div class="abstract"><span class="text-19 text-30 text-40">Writing a Web Dynpro ABAP application may be a job, but it can also be a craft—and in this </span><span class="text-30 text-40">book, you have the tool you need to become a master. </span><span class="text-40">Start with the basics, jump right into advanced concepts, or </span>
+         &hellip; <a title="To the Book Web Dynpro ABAP" href="/web-dynpro-abap_3021/">More about the book</a></div><p class="price">from  $69.99</p><p class="variant status available"><span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p><div class="variants"><span data-type="3">E-book</span> | <span data-type="2">Print edition</span> | <span data-type="4">Bundle</span></div></article>
+
+                    </li>
+                
+                </ul>
+            </div>
+        
+    
+
+        </section>
+
+    </article>
+
+    
+
+                </div>
+
+                <div class="content-sidebar">
+                
+ <aside>
+    <div id="product-add-to-basket">
+        
+    
+
+<header style="background-color: #21B7C5;">
+    
+        <h3 class="variant variant_choice_2">Print edition</h3>
+    
+        <h3 class="variant variant_choice_3">E-book</h3>
+    
+        <h3 class="variant variant_choice_4">Bundle</h3>
+    
+</header>
+<section class="product-full-row">
+    <div class="box">
+        
+    
+        <div class="variant variant_choice_2">
+            <p class="variant price">
+                $84.95
+            </p>
+            <p class="variant status available">
+    
+        <span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p>
+
+
+
+        </div>
+    
+        <div class="variant variant_choice_3">
+            <p class="variant price">
+                $74.99
+            </p>
+            <p class="variant status available">
+    
+        <span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p>
+
+
+
+        </div>
+    
+        <div class="variant variant_choice_4">
+            <p class="variant price">
+                $94.99
+            </p>
+            <p class="variant status available">
+    
+        <span class="product-availability-available statusicon"></span>
+            Available
+            
+    
+</p>
+
+
+
+        </div>
+    
+
+
+        
+        
+        <form id="add_to_basket_form" action="/basket/add/" method="post" class="form-stacked add-to-basket">
+            <input type='hidden' name='csrfmiddlewaretoken' value='A5cJKzPCtwTaQpGHPdiHj6AfvLhX5shf' />
+            
+
+
+
+
+
+
+    
+
+
+    <input id="id_product_id" name="product_id" type="hidden" value="1171" />
+
+
+
+    
+
+
+    <input id="id_quantity" name="quantity" type="hidden" value="1" />
+
+
+
+
+            <button type="submit" class="btn-add-to-basket" value="Add to Shopping Cart">Add to Shopping Cart</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+    </div>
+
+    
+    
+
+
+    
+        
+<div class="box usp">
+    <ul>
+        
+            <li class="payment">
+                Convenient Payment
+                <br />Credit card or PayPal
+            </li>
+        
+            <li class="delivery">
+                Fast Delivery
+                <br />Optional express delivery
+            </li>
+        
+            <li class="service">
+                Service
+                <br />We're here to help!
+
+                <p>Monday to Friday,
+                    <br />9am to 5pm EST
+                    <br />+1.781.228.5070</p>
+
+                <a href="mailto:info@rheinwerk-publishing.com" class="email">info@rheinwerk-publishing.com</a>
+            </li>
+    </ul>
+</div>
+
+    
+
+    
+        <div class="box banner">
+            <a href="/e-books/"><img src="//static.sap-press.com/img/ebook_banner.png" alt="SAP PRESS E-books" /></a>
+        </div>
+    
+ </aside>
+
+                </div>
+            
+            </div>
+
+            
+                <footer>
+                    <div class="column">
+                        <h5>About Us</h5>
+                        <ul>
+                            <li><a rel="nofollow" href="/the-publisher/">The Publisher</a></li>
+                            <li><a rel="nofollow" href="/the-team/">The Team</a></li>
+                            <!--
+                                <li><a href="/authors/">Our Authors</a></li>
+                                <li><a href="/jobs/">Jobs</a></li>
+                            -->
+                            <li><a rel="nofollow" href="/legal-notes/">Legal Notes</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h5>Contact</h5>
+                        <ul>
+                                <li><a rel="nofollow" href="/newsletter/subscribe/">Newsletter</a></li>
+                            <!--
+                                <li><a href="/feedback/">Praise and Critizism</a></li>
+                            -->
+                            <li><a rel="nofollow" href="/become-an-author/">Become an Author</a></li>
+                            <li><a rel="nofollow" href="/press/">Press and Educators</a></li>
+                        </ul>
+                        <ul class="social-media">
+                            <li><a href="//www.facebook.com/sappress" title="Facebook" id="facebook-small" class="small-social-media-icon socialmedia-facebook"></a></li>
+                            <li><a href="//twitter.com/sappress" title="Twitter" id="twitter-small" class="small-social-media-icon socialmedia-twitter"></a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h5>Shopping with Us</h5>
+                        <ul>
+                            <li><a rel="nofollow" href="/shopping/delivery/">Delivery/Shipping</a></li>
+                            <li><a rel="nofollow" href="/shopping/payment/">Payment</a></li>
+                            <li><a rel="nofollow" href="/shopping/returns/">Returns</a></li>
+                            <li><a rel="nofollow" href="/terms/">Terms and Privacy Policy</a></li>
+                            <li><a rel="nofollow" href="/help/">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h5>Customer Service</h5>
+                        <p>We're here to help!
+                            <br />Monday to Friday,
+                            <br />9am to 5pm EST
+                        </p>
+                        <p>+1.781.228.5070</p>
+                        <p><a href="mailto:info@rheinwerk-publishing.com">info@rheinwerk-publishing.com</a></p>
+                    </div>
+                </footer>
+            
+        </div>
+
+        
+        
+
+        
+
+        
+        <div class="overlay" id="overlay">
+            <div id="overlay_content">
+            </div>
+        </div>
+
+        
+        <!-- Version: N/A -->
+    </body>
+</html>
