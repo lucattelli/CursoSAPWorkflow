@@ -1,4 +1,5 @@
 # CursoSAPWorkflow
+
 O SAP Workflow continua sendo uma ferramenta relevante no mundo do SAP S/4HANA. Com ele, podemos rapidamente ativar e customizar fluxos para serem usados em apps como o Fiori MyInbox. Por isso, acaba sendo um conhecimento técnico quase que obrigatório para um consultor SAP Fiori.
 
 Só que o SAP Workflow pode muito bem ser ativado/alterado por um consultor funcional também. Muito do que fizemos no curso usa funcionalidade standard que não requer conhecimento de ABAP.
